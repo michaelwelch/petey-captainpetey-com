@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Captain Petey
+    template: '%s — Captain Petey'
+  description: "\U0001F680 Help Captain Petey the capybara get fit and go on adventures!"
   robots:
     index: true
     follow: true
