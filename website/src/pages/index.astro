@@ -51,10 +51,13 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-   import PeteyMap from '~/assets/images/petey_map_jungle.jpeg';
+import { getImage } from 'astro:assets';
+import PeteyMap from '~/assets/images/petey_map_jungle.jpeg';
+
+const optimizedImage = await getImage({ src: PeteyMap });
 
 image={{
-  src: PeteyMap,
+  src: optimizedImage.src,
   alt: "Petey Jungle Map",
 }}
   >
