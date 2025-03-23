@@ -17,12 +17,6 @@ import Image from '~/components/common/Image.astro';
 import { getImage } from 'astro:assets';
 import PeteyMap from '~/assets/images/petey_map_jungle.jpeg';
 
-const optimizedImage = await getImage({ src: PeteyMap });
-
-image={{
-  src: optimizedImage.src,
-  alt: "Petey Jungle Map",
-}}
 
 const appStoreImg = '~/assets/images/app-store.png';
 const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
