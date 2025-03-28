@@ -15,14 +15,17 @@ import { headerData } from '~/navigation';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import { getImage } from 'astro:assets';
+import appStoreImg from '~/assets/images/app-store.png';
+import  googlePlayImg from '~/assets/images/google-play.png';
 import PeteyMap from '~/assets/images/petey_map_jungle.jpeg';
 
 
-const appStoreImg = '~/assets/images/app-store.png';
 const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
-
-const googlePlayImg = '~/assets/images/google-play.png';
 const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
+
+const appStoreImage = await getImage({src: appStoreImg, inferSize: true});
+const googlePlayImage = await getImage({src: googlePlayImg, inferSize: true});
+const peteyMapImage = await getImage({src: PeteyMap, inferSize: true});
 
 const metadata = {
   title: 'The Adventures of Captain Petey',
@@ -55,8 +58,10 @@ const metadata = {
 
   <Hero2
     image={{
-    src: PeteyMap,
-    alt: "Petey Jungle Map",
+    src: peteyMapImage.src,
+    width: peteyMapImage.width,
+    height: peteyMapImage.height,
+    alt: "Petey Jungle Map"
   }}
   
   >
@@ -73,11 +78,11 @@ const metadata = {
 
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+        <Image {...appStoreImage} alt="App Store Image"  />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+        <Image {...googlePlayImage} alt="Google Play Image" />
       </Button>
     </div>
   </Hero2>
@@ -289,11 +294,11 @@ const metadata = {
   >
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+        <Image {...appStoreImage} alt="App Store Image" />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+        <Image {...googlePlayImage} alt="Google Play Image"  />
       </Button>
     </div>
   </CallToAction>
