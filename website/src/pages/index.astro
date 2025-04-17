@@ -15,19 +15,22 @@ import { headerData } from '~/navigation';
 import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 import { getImage } from 'astro:assets';
-import appStoreImg from '~/assets/images/app-store.png';
-import  googlePlayImg from '~/assets/images/google-play.png';
-import PeteyMap from '~/assets/images/petey_map_jungle.jpeg';
-import PeteyRaft from '~/assets/images/petey-raft.png';
+import appStoreImage from '~/assets/images/app-store.png';
+import googlePlayImage from '~/assets/images/google-play.png';
+import peteyMapImage from '~/assets/images/petey-map-jungle.jpg';
+import peteyRaftImage from '~/assets/images/petey-raft.png';
 
 
 const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
 const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
 
-const appStoreImage = await getImage({src: appStoreImg, inferSize: true});
-const googlePlayImage = await getImage({src: googlePlayImg, inferSize: true});
-const peteyMapImage = await getImage({src: PeteyMap, inferSize: true});
+const appStoreImg = await getImage({src: appStoreImage, inferSize: true});
+const googlePlayImg = await getImage({src: googlePlayImage, inferSize: true});
+const peteyMapImg = await getImage({src: peteyMapImage, inferSize: true});
+// const peteyRaftImg = await getImage({src: peteyRaftImage, inferSize: true});
 
+// console.log("PETEY MAP IMAGE IS: ", JSON.stringify(peteyMapImg))
+// console.log("PETEY RAFT IMAGE IS: ", JSON.stringify(peteyRaftImg))
 const metadata = {
   title: 'The Adventures of Captain Petey',
 };
@@ -59,9 +62,9 @@ const metadata = {
 
   <Hero2
     image={{
-    src: peteyMapImage.src,
-    width: peteyMapImage.width,
-    height: peteyMapImage.height,
+    src: peteyMapImg,
+    width: peteyMapImg.width,
+    height: peteyMapImg.height,
     alt: "Petey Jungle Map"
   }}
   
@@ -79,11 +82,11 @@ const metadata = {
 
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image {...appStoreImage} alt="App Store Image"  />
+        <Image {...appStoreImg} alt="App Store Image"  />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image {...googlePlayImage} alt="Google Play Image" />
+        <Image {...googlePlayImg} alt="Google Play Image" />
       </Button>
     </div>
   </Hero2>
@@ -119,7 +122,13 @@ const metadata = {
         icon: 'tabler:square-number-4',
       },
     ]}
-  <img src="/images/Petey-Raft.png" alt="Captain Petey relaxing on a raft" />
+    {{ //image={{
+      // src: peteyRaftImg,
+      // width: peteyRaftImg.width,
+      // height: peteyRaftImg.height,
+      // alt: 'Captain Petey relaxing on a raft',
+    }}
+    
 
   />
 
@@ -293,11 +302,11 @@ const metadata = {
   >
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image {...appStoreImage} alt="App Store Image" />
+        <Image {...appStoreImg} alt="App Store Image" />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image {...googlePlayImage} alt="Google Play Image"  />
+        <Image {...googlePlayImg} alt="Google Play Image"  />
       </Button>
     </div>
   </CallToAction>
