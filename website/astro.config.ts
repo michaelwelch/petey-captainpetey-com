@@ -1,7 +1,9 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-
 import { defineConfig } from 'astro/config';
+
+// Remove this import:
+// import image from '@astrojs/image'; // DELETE THIS LINE
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -25,6 +27,11 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
+    // Remove the old image integration block:
+    // image({ // DELETE THIS BLOCK
+    //   serviceEntryPoint: '@astrojs/image/sharp',
+    // }),
+
     tailwind({
       applyBaseStyles: false,
     }),
@@ -33,58 +40,25 @@ export default defineConfig({
     icon({
       include: {
         tabler: ['*'],
-        'flat-color-icons': [
-          'template',
-          'gallery',
-          'approval',
-          'document',
-          'advertising',
-          'currency-exchange',
-          'voice-presentation',
-          'business-contact',
-          'database',
-        ],
+        'flat-color-icons': [ /* ... */ ],
       },
     }),
-
     ...whenExternalScripts(() =>
       partytown({
         config: { forward: ['dataLayer.push'] },
       })
     ),
-
-    compress({
-      CSS: true,
-      HTML: {
-        'html-minifier-terser': {
-          removeAttributeQuotes: false,
-        },
-      },
-      Image: false,
-      JavaScript: true,
-      SVG: false,
-      Logger: 1,
-    }),
-
+    compress({ /* ... */ }),
     astrowind({
       config: './src/config.yaml',
     }),
   ],
 
-  image: {
-    domains: ['cdn.pixabay.com'],
-  },
+  // Remove the image config block (it was for the old integration):
+  // image: { // DELETE THIS BLOCK
+  //   domains: ['cdn.pixabay.com', 'images.unsplash.com'],
+  // },
 
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
-  },
-
-  vite: {
-    resolve: {
-      alias: {
-        '~': path.resolve('./src'),
-      },
-    },
-  },
+  markdown: { /* ... */ },
+  vite: { /* ... */ },
 });
