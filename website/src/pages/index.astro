@@ -17,7 +17,7 @@ import Image from '~/components/common/Image.astro';
 import { getImage } from 'astro:assets';
 import appStoreImage from '~/assets/images/app-store.png';
 import googlePlayImage from '~/assets/images/google-play.png';
-import peteyMapImage from '~/assets/images/petey-map-jungle.jpg';
+import peteyMapImg from '~/assets/images/petey-map-jungle.jpg';
 import peteyRaftImage from '~/assets/images/petey-raft.png';
 
 
@@ -26,7 +26,7 @@ const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
 
 const appStoreImg = await getImage({src: appStoreImage, inferSize: true});
 const googlePlayImg = await getImage({src: googlePlayImage, inferSize: true});
-const peteyMapImg = await getImage({src: peteyMapImage, inferSize: true});
+// const peteyMapImg = await getImage({src: peteyMapImage, inferSize: true});
 // const peteyRaftImg = await getImage({src: peteyRaftImage, inferSize: true});
 
 // console.log("PETEY MAP IMAGE IS: ", JSON.stringify(peteyMapImg))
@@ -122,14 +122,12 @@ const metadata = {
         icon: 'tabler:square-number-4',
       },
     ]}
-    {{ //image={{
+{{ //image={{
       // src: peteyRaftImg,
       // width: peteyRaftImg.width,
       // height: peteyRaftImg.height,
       // alt: 'Captain Petey relaxing on a raft',
-    }}
-    
-
+  }}
   />
 
   <!-- Content Widget **************** -->
